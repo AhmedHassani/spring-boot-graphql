@@ -6,8 +6,8 @@ import javax.validation.constraints.NotNull;
 
 public class Model {
     @NotNull
-    @JsonProperty("mit")
-    private long mit;
+    @JsonProperty("MIT")
+    private long MIT;
     @NotNull
     private String requestID;
     @NotNull
@@ -29,11 +29,11 @@ public class Model {
     }
 
     public long getMit() {
-        return mit;
+        return MIT;
     }
 
-    public void setMit(long mit) {
-        this.mit = mit;
+    public void setMit(long MIT) {
+        this.MIT = MIT;
     }
 
     public String getRequestID() {
