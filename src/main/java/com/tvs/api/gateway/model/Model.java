@@ -1,10 +1,13 @@
 package com.tvs.api.gateway.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.validation.constraints.NotNull;
 
 public class Model {
     @NotNull
-    private long MTI;
+    @JsonProperty("mit")
+    private long mit;
     @NotNull
     private String requestID;
     @NotNull
@@ -25,12 +28,12 @@ public class Model {
     public Model() {
     }
 
-    public long getMTI() {
-        return MTI;
+    public long getMit() {
+        return mit;
     }
 
-    public void setMTI(long MTI) {
-        this.MTI = MTI;
+    public void setMit(long mit) {
+        this.mit = mit;
     }
 
     public String getRequestID() {
