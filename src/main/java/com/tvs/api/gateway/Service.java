@@ -1,7 +1,6 @@
 package com.tvs.api.gateway;
 
 
-import com.sun.org.apache.xml.internal.security.utils.Base64;
 import com.tvs.api.gateway.exception.ResourceNotFoundException;
 import com.tvs.api.gateway.model.Model;
 import com.tvs.api.gateway.model.Resopnse;
@@ -13,6 +12,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.NoSuchElementException;
+import java.util.Random;
 
 @org.springframework.stereotype.Service
 public class Service {
@@ -42,7 +42,7 @@ public class Service {
                         "000",
                         "SUCCESSFULL",
                         model.getRequestBody(),
-                        Base64.encode("jfjfrkrifrfmfmfm4kfoffofoslls".getBytes())
+                        MD5("jfjfjfpdpdpdp"+ new Random().nextDouble())
                 );
             } else{
                 System.out.print("No macout");
@@ -63,6 +63,21 @@ public class Service {
         }catch (ConstraintViolationException e) {
             throw new ResourceNotFoundException(model.getRequestID());
         }
+    }
+
+
+    public String MD5(String md5) {
+        try {
+            java.security.MessageDigest md = java.security.MessageDigest.getInstance("MD5");
+            byte[] array = md.digest(md5.getBytes());
+            StringBuffer sb = new StringBuffer();
+            for (int i = 0; i < array.length; ++i) {
+                sb.append(Integer.toHexString((array[i] & 0xFF) | 0x100).substring(1,3));
+            }
+            return sb.toString();
+        } catch (java.security.NoSuchAlgorithmException e) {
+        }
+        return null;
     }
 
 }

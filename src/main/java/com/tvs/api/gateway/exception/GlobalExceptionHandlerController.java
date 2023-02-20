@@ -1,7 +1,6 @@
 package com.tvs.api.gateway.exception;
 
 
-import com.sun.org.apache.xml.internal.security.utils.Base64;
 import com.tvs.api.gateway.model.Resopnse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -31,7 +30,8 @@ public class GlobalExceptionHandlerController {
                 df.format(new Date()).toString(),
                 "400",
                 "FAIL",
-                Base64.encode("Bad request".getBytes())
+                "ZXJyb3IgcmVxdWVzdCA="
+
         );
         return new ResponseEntity<>(resopnse, null, HttpStatus.OK);
     }
@@ -44,7 +44,7 @@ public class GlobalExceptionHandlerController {
                 df.format(new Date()).toString(),
                 "400",
                 "FAIL",
-                Base64.encode("Bad request".getBytes())
+                "ZXJyb3IgcmVxdWVzdCA="
         );
         return new ResponseEntity<>(resopnse, null, HttpStatus.OK);
     }
