@@ -19,7 +19,7 @@ public class Service {
 
 
     public Resopnse tvsAPIGateway(Model model){
-        System.out.println(model.getMit());
+        System.out.println(model.getMti());
         try {
             if(model.getRequestID().isEmpty()
                     ||model.getSenderChannel().isEmpty()
@@ -32,7 +32,7 @@ public class Service {
                     ||model.getDeviceInfo().getDeviceID().isEmpty()
                     ||model.getDeviceInfo().getOperatingSystem().isEmpty()) {
                 throw new ResourceNotFoundException(model.getRequestID());
-            } else if (model.getMit()==2000) {
+            } else if (model.getMti()==2000) {
                 System.out.print("macout");
                 DateFormat df = new SimpleDateFormat("YYYYMMDDHHMMS");
                 String requiredDate = df.format(new Date()).toString();
